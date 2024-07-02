@@ -25,11 +25,11 @@ RUN wget https://github.com/terramate-io/terramate/releases/download/v${TERRAMAT
 # Verify installations
 RUN terraform --version && terramate --version
 
-# Expose the necessary port
-EXPOSE 3000
+# # Expose the necessary port
+# EXPOSE 3000
 
-# Set the working directory
-WORKDIR /config/workspace
+# # Set the working directory
+# WORKDIR /config/workspace
 
-# Start the server
-CMD ["dumb-init", "/app/code-server/bin/code-server"]
+# # Start the server
+# CMD ["dumb-init", "/app/code-server/bin/code-server"]
