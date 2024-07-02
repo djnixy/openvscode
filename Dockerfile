@@ -1,7 +1,8 @@
 # Use the base image
 FROM gitpod/openvscode-server:latest
 
-USER root # to get permissions to install packages and such
+# to get permissions to install packages and such
+USER root 
 
 # Install dependencies
 RUN apt-get update && apt-get install -y \
@@ -24,7 +25,8 @@ RUN wget https://github.com/terramate-io/terramate/releases/download/v${TERRAMAT
     && dpkg -i terramate_${TERRAMATE_VERSION}_linux_amd64.deb \
     && rm terramate_${TERRAMATE_VERSION}_linux_amd64.deb
 
-USER openvscode-server # to restore permissions for the web interface
+# to restore permissions for the web interface
+USER openvscode-server 
 # Verify installations
 RUN terraform --version && terramate --version
 
