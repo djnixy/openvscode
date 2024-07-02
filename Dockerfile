@@ -10,6 +10,7 @@ RUN apt-get update && apt-get install -y \
     wget \
     unzip \
     git \
+    nano \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Terraform
