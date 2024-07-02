@@ -17,10 +17,9 @@ RUN curl -fsSL https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/ter
 
 # Install Terramate
 ARG TERRAMATE_VERSION=0.9.0
-RUN curl -fsSL https://github.com/terramate-io/terramate/releases/download/v${TERRAMATE_VERSION}/terramate_${TERRAMATE_VERSION}_linux_amd64.tar.gz -o terramate.tar.gz \
-    && tar -xzvf terramate.tar.gz \
-    && mv terramate /usr/local/bin/ \
-    && rm terramate.tar.gz
+RUN curl -fsSL https://github.com/terramate-io/terramate/releases/download/v${TERRAMATE_VERSION}/terramate_${TERRAMATE_VERSION}_linux_amd64.deb -o terramate.tar.gz \
+    && dpkg -i terramate_${TERRAMATE_VERSION}_linux_amd64.deb \
+    && rm terramate_${TERRAMATE_VERSION}_linux_amd64.deb
 
 # Verify installations
 RUN terraform --version && terramate --version
