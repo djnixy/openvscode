@@ -4,6 +4,7 @@ FROM lscr.io/linuxserver/openvscode-server:latest
 # Install dependencies
 RUN apt-get update && apt-get install -y \
     curl \
+    wget \
     unzip \
     git \
     && rm -rf /var/lib/apt/lists/*
