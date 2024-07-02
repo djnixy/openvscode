@@ -31,6 +31,12 @@ USER openvscode-server
 # Verify installations
 RUN terraform --version && terramate --version
 
+RUN touch ~/.bashrc \
+    && echo "alias tm='terramate'" >> /root/.bashrc \
+    && echo "alias tmplan='terramate generate && terramate run -- terraform init && terramate run -- terraform plan'" >> /root/.bashrc \
+    && echo "alias tmapply='terramate generate && terramate run -- terraform init && terramate run -- terraform apply -auto-approve'" >> /root/.bashrc \
+    && echo "alias tmdestroy='terramate run -- terraform destroy'" >> /root/.bashrc
+RUN source ~/.bashrc
 # # Expose the necessary port
 # EXPOSE 3000
 
