@@ -31,7 +31,7 @@ USER openvscode-server
 # Verify installations
 RUN terraform --version && terramate --version
 
-ARG HOME_PATH=/home/workspace
+ARG HOME_PATH=/home
 RUN touch ${HOME_PATH}/.bashrc \
     && echo "alias tm='terramate'" >> ~/.bashrc \
     && echo "alias tmplan='terramate generate && terramate run -- terraform init && terramate run -- terraform plan'" >> ${HOME_PATH}/.bashrc \
