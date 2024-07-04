@@ -36,7 +36,8 @@ RUN touch ~/.bashrc \
     && echo "alias tmplan='terramate generate && terramate run -- terraform init && terramate run -- terraform plan'" >> ~/.bashrc \
     && echo "alias tmapply='terramate generate && terramate run -- terraform init && terramate run -- terraform apply -auto-approve'" >> ~/.bashrc \
     && echo "alias tmdestroy='terramate run -- terraform destroy'" >> ~/.bashrc
-RUN source ~/.bashrc
+RUN bash -c 'source ~/.bashrc'
+
 # # Expose the necessary port
 # EXPOSE 3000
 
