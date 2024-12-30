@@ -1,6 +1,6 @@
 # Use the base image
 FROM gitpod/openvscode-server:latest
-
+#
 # to get permissions to install packages and such
 USER root 
 
